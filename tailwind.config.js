@@ -7,6 +7,13 @@ module.exports = {
     require("@tailwindcss/line-clamp"),
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        blue: "#3B5BDB",
+        gray: "#343A40",
+        green: "#099268",
+        red: "#E03131",
+      },
+    },
   },
 };
