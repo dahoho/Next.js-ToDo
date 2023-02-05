@@ -1,4 +1,4 @@
-import { SetStateAction, useState } from "react";
+import { SetStateAction, useCallback, useState } from "react";
 
 export const useTodo = () => {
   const [todoText, setTodoText] = useState("");
@@ -10,40 +10,49 @@ export const useTodo = () => {
     setTodoText(e.target.value);
   };
 
-  const onClickAdd = () => {
+  const onClickAdd = useCallback(() => {
     if (todoText === "") {
       return alert("テキストを入力してください。");
     }
     const newTodos = [...incompleteTodos, todoText];
     setIncompleteTodos(newTodos);
     setTodoText("");
-  };
+  }, [todoText, incompleteTodos]);
 
-  const onClickDelete = (index: number) => {
-    const newTodos = [...incompleteTodos];
-    newTodos.splice(index, 1);
-    setIncompleteTodos(newTodos);
-  };
+  const onClickDelete = useCallback(
+    (index: number) => {
+      const newTodos = [...incompleteTodos];
+      newTodos.splice(index, 1);
+      setIncompleteTodos(newTodos);
+    },
+    [incompleteTodos]
+  );
 
-  const onClickComplete = (index: number) => {
-    const newIncompleteTodos = [...incompleteTodos];
-    newIncompleteTodos.splice(index, 1);
+  const onClickComplete = useCallback(
+    (index: number) => {
+      const newIncompleteTodos = [...incompleteTodos];
+      newIncompleteTodos.splice(index, 1);
 
-    const newCompleteTodos = [...completeTodos, incompleteTodos[index]];
+      const newCompleteTodos = [...completeTodos, incompleteTodos[index]];
 
-    setIncompleteTodos(newIncompleteTodos);
-    setCompleteTodos(newCompleteTodos);
-  };
+      setIncompleteTodos(newIncompleteTodos);
+      setCompleteTodos(newCompleteTodos);
+    },
+    [incompleteTodos, completeTodos]
+  );
 
-  const onClickBack = (index: number) => {
-    const newCompleteTodos = [...completeTodos];
-    newCompleteTodos.splice(index, 1);
-    setCompleteTodos(newCompleteTodos);
+  const onClickBack = useCallback(
+    (index: number) => {
+      const newCompleteTodos = [...completeTodos];
+      newCompleteTodos.splice(index, 1);
+      setCompleteTodos(newCompleteTodos);
 
-    const newIncompleteTodos = [...incompleteTodos, completeTodos[index]];
-    setCompleteTodos(newCompleteTodos);
-    setIncompleteTodos(newIncompleteTodos);
-  };
+      const newIncompleteTodos = [...incompleteTodos, completeTodos[index]];
+      setCompleteTodos(newCompleteTodos);
+      setIncompleteTodos(newIncompleteTodos);
+    },
+    [completeTodos, incompleteTodos]
+  );
   return {
     changeTodoText,
     completeTodos,
