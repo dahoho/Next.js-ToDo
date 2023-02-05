@@ -12,7 +12,7 @@ export const IncompleteTodos = ({
   return (
     <div className="mt-10">
       <div>
-        <p className="text-xl font-bold">未完了</p>
+        <p className="bg-slate-200 py-2 px-3 text-lg font-bold">未完了</p>
         <ul className="mt-5 space-y-3">
           {incompleteTodos.map((todo, index) => {
             return (

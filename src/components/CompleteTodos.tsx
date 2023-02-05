@@ -7,7 +7,7 @@ export const CompleteTodos = ({ completeTodos, onClickBack }: Props) => {
   return (
     <div className="mt-10">
       <div>
-        <p className="text-xl font-bold">完了</p>
+        <p className="bg-slate-200 py-2 px-3 text-lg font-bold">完了</p>
         <ul className="mt-5 space-y-3">
           {completeTodos.map((todo, index) => {
             return (
@@ -16,7 +16,7 @@ export const CompleteTodos = ({ completeTodos, onClickBack }: Props) => {
                 <div className="shrink-0">
                   <button
                     type="button"
-                    className="mr-2 bg-green px-3 py-1 text-white"
+                    className="mr-2 bg-gray px-3 py-1 text-white"
                     onClick={() => onClickBack(index)}
                   >
                     戻す
