@@ -21,7 +21,7 @@ export const InputTodo = ({ changeTodoText, onClickAdd, todoText }: Props) => {
       />
       <button
         type="button"
-        className="shrink-0 bg-blue py-1 px-4 text-white"
+        className="shrink-0 bg-blue py-1 px-4 text-white hover:opacity-90"
         onClick={onClickAdd}
       >
         登録

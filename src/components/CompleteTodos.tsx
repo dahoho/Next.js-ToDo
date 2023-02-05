@@ -16,7 +16,7 @@ export const CompleteTodos = ({ completeTodos, onClickBack }: Props) => {
                 <div className="shrink-0">
                   <button
                     type="button"
-                    className="mr-2 bg-gray px-3 py-1 text-white"
+                    className="mr-2 bg-gray px-3 py-1 text-white hover:opacity-90"
                     onClick={() => onClickBack(index)}
                   >
                     戻す

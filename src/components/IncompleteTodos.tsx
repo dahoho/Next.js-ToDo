@@ -21,14 +21,14 @@ export const IncompleteTodos = ({
                 <div className="shrink-0">
                   <button
                     type="button"
-                    className="mr-2 bg-green px-3 py-1 text-white"
+                    className="mr-2 bg-green px-3 py-1 text-white hover:opacity-90"
                     onClick={() => onClickComplete(index)}
                   >
                     完了
                   </button>
                   <button
                     type="button"
-                    className="bg-red px-3 py-1 text-white"
+                    className="bg-red px-3 py-1 text-white hover:opacity-90"
                     onClick={() => onClickDelete(index)}
                   >
                     削除
